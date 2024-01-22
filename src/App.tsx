@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box } from '@mui/material';
+import Navbar from './NavBar';
+import Home from './Home';
+import About from './About';
+import Experience from './Experience';
+import Projects from './Projects';
+import Contact from './Contact';
+import './styles.css';
+import { useRef } from 'react';
+import Footer from './Footer';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const resultRef = useRef(null);
+  
+  return (<div style={{
+    background: 'linear-gradient(transparent, rgb(6,47,79, 0.5))',
+    backgroundAttachment: 'fixed'
+    }}>
+    <Navbar experience={resultRef}/>
+    <Home />
+    <About/>
+    <Experience ref={resultRef} />
+    <Projects />
+    <Contact />
+    <Footer />
     </div>
-  );
+  )
 }
 
 export default App;
